@@ -1,0 +1,94 @@
+    xaxis: {
+            categories: [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June"
+            ]
+        },
+        /*   theme: {
+              mode: "light",
+              palette: "palette10"
+  
+          }*/
+
+        //  colors : ["#101641", "#e68d89"],
+       /*  legend: {
+            show: true,
+            position: "top",
+            horizontalAlign: "left",
+            fontSize: 20,
+            fontWeight: "bold",
+            markers: {
+                fillColors: ["#101641", "#e68d89"],
+                width: 20,
+                height: 20
+            }
+        }, */
+        chart : {
+            toolbar : {
+                show : true,
+                tools : {
+                    download : false
+                }
+                
+            },
+          //  background : "green",
+          /* animations : {
+            speed : 5000,
+            easing : "linear"
+          } */
+
+
+        },
+      /*   markers : {
+            size : [20,10],
+            color : ["red","green"],
+            shape : "square",
+            strokeWidth : 10,
+            strokeColors : "black"
+        } */
+        
+        title : {
+            text : "Revenue Updates",
+            align : "center",
+            style : {
+                fontSize : "21px",
+              //  color : "green"
+            }
+        },
+       /*  subtitle : {
+            text : "Revenue Updates",
+            align : "left",
+            style : {
+                fontSize : "21px",
+              //  color : "green"
+            }
+        } */
+
+
+//-----------------------------------------
+ <FullCalendar  
+             plugins={[ dayGridPlugin ]}
+             initialView="dayGridMonth"
+             events={[
+                {
+                    title : "Nasir birthday",
+                    date : "2023-11-24",
+                    color : "green"
+                },
+                {
+                    title : "Bay domain",
+                    date : "2023-11-25",
+                    color : "red"
+                }
+             ]}
+             headerToolbar={{
+                start : "prev,today,next",
+                center : "title",
+                end : "today"
+             }}
+             eventDisplay='list-item'
+            />
