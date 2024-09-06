@@ -25,13 +25,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
- app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.use('/api/notes', notesRouter);
@@ -48,6 +46,17 @@ app.use('/api/revenue-updates', revenueUpdatesRouter);
 app.get('/api', (req, res) => {
   res.status(200).send({ message: 'welcome dashboard api' });
 });
+
+const path = require("path");
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+// Anything that doesn't match /api routes, send the index.html file
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
